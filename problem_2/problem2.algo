@@ -1,0 +1,31 @@
+PROCEDURE is_orthogonal(V1, V2, n)
+BEGIN
+    SET orthogonal := TRUE;
+    i := 0;
+    WHILE(i < length(n)) DO
+        FOR j := 0 TO n - 1 DO
+            dot_product(V1, V2, ps);
+            IF ps ≠ 0 THEN
+                SET orthogonal := FALSE;
+            END IF;
+        END FOR;
+        i := i + 1;
+    END WHILE;
+    RETURN orthogonal;
+END;
+
+VAR
+    V1 : ARRAY_OF INTEGER[];
+    V2 : ARRAY_OF INTEGER[];
+    n : INTEGER;
+    orthogonal : Boolean;
+BEGIN
+    write('enter value of V1');
+    read(V1);
+    write('enter value of V2');
+    read(V2);
+    write('enter number');
+    read(n);
+    orthogonal := is_orthogonal(V1, V2, n);
+    write(orthogonal);
+END.
